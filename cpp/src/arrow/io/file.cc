@@ -581,6 +581,13 @@ Status FileOutputStream::Close() { return impl_->Close(); }
 
 Status FileOutputStream::Tell(int64_t* pos) const { return impl_->Tell(pos); }
 
+Status FileOutputStream::Seek(int64_t pos) {return impl_->Seek(pos);}
+
+Status FileOutputStream::GetSize(int64_t* size) {
+  *size = impl_->size();
+  return Status::OK();
+}
+
 Status FileOutputStream::Write(const void* data, int64_t length) {
   return impl_->Write(data, length);
 }

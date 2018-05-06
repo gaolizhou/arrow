@@ -73,6 +73,9 @@ class ARROW_EXPORT FileOutputStream : public OutputStream {
   Status Close() override;
   Status Tell(int64_t* position) const override;
 
+  Status Seek(int64_t pos);
+  Status GetSize(int64_t* size);
+
   // Write bytes to the stream. Thread-safe
   Status Write(const void* data, int64_t nbytes) override;
 
